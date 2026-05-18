@@ -5,8 +5,12 @@ const Navigation = (props) => {
   const List = props.navItems.map((items) => {
     return (
       <li className="navItem" key={items.id}>
-        <a href={`${items.path}`}>{items.name}</a>
-        {/* <Link to={`#${items.path}`}>{items.name}</Link> */}
+        {/* <Link to={items.path}>{items.name}</Link> */}
+        {items.pathType == "inner" ? (
+          <a href={`/#${items.path}`}>{items.name}</a>
+        ) : (
+          <Link to={items.path}>{items.name}</Link>
+        )}
       </li>
     );
   });

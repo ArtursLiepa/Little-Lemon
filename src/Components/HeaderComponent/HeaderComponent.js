@@ -8,31 +8,37 @@ const Header = () => {
     {
       id: 1,
       path: "/",
+      pathType: "page",
       name: "Home",
     },
     {
       id: 2,
-      path: "/#about",
+      path: "about",
+      pathType: "inner",
       name: "About",
     },
     {
       id: 3,
-      path: "/#menu",
+      path: "testimonials",
+      pathType: "inner",
       name: "Menu",
     },
     {
       id: 4,
-      path: "/#reservation",
+      path: "tableReservation",
+      pathType: "page",
       name: "Reservations",
     },
     {
       id: 5,
       path: "/#orders",
+      pathType: "inner",
       name: "Order online",
     },
     {
       id: 5,
       path: "login",
+      pathType: "inner",
       name: "Login",
     },
   ];

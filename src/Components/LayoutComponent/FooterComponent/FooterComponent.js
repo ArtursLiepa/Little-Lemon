@@ -1,6 +1,6 @@
 import "./FooterComponent..css";
 import photo from "../../../Assets/Mario and Adrian b.jpg";
-import Navigation from "../../HeaderComponent/NavComponent/NavigationComponent";
+// import Navigation from "../../HeaderComponent/NavComponent/NavigationComponent";
 
 const FooterComponent = () => {
   return (

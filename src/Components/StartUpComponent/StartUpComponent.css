@@ -1,4 +1,5 @@
 .startupSection {
-    height: 2900px;
-    background-color: cornflowerblue;
+    height: auto;
+    width: 100%;
+    /* background-color: cornflowerblue; */
 }
