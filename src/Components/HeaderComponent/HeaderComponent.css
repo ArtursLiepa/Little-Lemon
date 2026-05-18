@@ -1,0 +1,22 @@
+header {
+    grid-area: header;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+}
+
+.titleImage {
+    margin: 10px;
+    padding: 10px;
+}
+
+@media (max-width:500px) {
+    header {
+
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+
+    }
+}
