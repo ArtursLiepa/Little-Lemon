@@ -1,0 +1,67 @@
+.bookingSection {
+    margin: 10px;
+    color: #333333;
+    font-family: "Karla", sans-serif;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas: "bookingsectiontitle" "bookingsectionlist";
+
+}
+
+.bookingsectiontitle {
+
+    grid-area: bookingsectiontitle;
+    font-size: 26px;
+    text-align: center;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+}
+
+.bookingsectionlist {
+    grid-area: bookingsectionlist;
+    margin-top: 20px;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+    justify-content: right;
+}
+
+@media (max-width:650px) {
+
+    .bookingSection {
+
+        grid-template-rows: 1fr 2fr;
+
+
+    }
+
+    .bookingsectiontitle {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .bookingsectionlist {
+
+        font-size: 22px;
+
+    }
+}
+
+@media (max-width:450px) {
+    .bookingsectiontitle {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .bookingsectionlist {
+
+        font-size: 16px;
+
+    }
+}

@@ -25,7 +25,7 @@ const Header = () => {
     },
     {
       id: 4,
-      path: "tableReservation",
+      path: "reservation/details",
       pathType: "page",
       name: "Reservations",
     },

@@ -17,7 +17,7 @@ const Hero = () => {
           </p>
         </section>
 
-        <Link className="button" to="tableReservation">
+        <Link className="button" to="reservation/details">
           Reserve a Table
         </Link>
       </div>
