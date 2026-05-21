@@ -3,7 +3,7 @@
     width: 100%;
     /* background-color: cornflowerblue; */
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 3fr;
     grid-template-rows: auto 1fr;
     grid-template-areas: "clientFormHero clientFormHero" " reservationoverview clientformview";
 
@@ -74,7 +74,7 @@
 }
 
 .reservationoverviewtitle {
-
+    padding: 10px;
     grid-area: reservationoverviewtitle;
     font-size: 26px;
     text-align: center;
@@ -85,6 +85,7 @@
 }
 
 .reservationdetaillist {
+    padding: 10px;
     grid-area: reservationdetaillist;
     margin-top: 20px;
     font-size: 24px;
@@ -114,7 +115,24 @@
     width: 100px;
 }
 
+.buttongo {
+    background-color: #F4CE14;
+}
+
+.buttongo:hover {
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+
+}
+
+
 @media (max-width:650px) {
+
+    .clientFormHero article {
+        font-size: 32px;
+
+    }
 
     .reservationoverview {
         grid-template-rows: 1fr 2fr;
@@ -127,7 +145,7 @@
     }
 
     .reservationdetaillist {
-        font-size: 22px;
+        font-size: 16px;
     }
 }
 

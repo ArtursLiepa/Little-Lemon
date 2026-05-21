@@ -1,6 +1,7 @@
 import Header from "../HeaderComponent/HeaderComponent";
 import MainComponent from "./MainComponent/MainComponent";
 import FooterComponent from "./FooterComponent/FooterComponent";
+import "./LayoutComponent.css";
 
 const LayoutComponent = () => {
   return (

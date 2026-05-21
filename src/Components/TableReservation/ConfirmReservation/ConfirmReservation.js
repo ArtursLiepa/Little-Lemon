@@ -1,18 +1,16 @@
 import "./ConfirmReservation.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import check from "../../../Assets/icons/check.png";
 import { useEffect } from "react";
 
 const ConfirmReservation = ({ reservation, reset }) => {
-  const location = useLocation();
   const navigate = useNavigate();
-  // const booking = location.state || {};
 
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/");
       reset(0);
-    }, 5000);
+    }, 15000);
 
     return () => clearTimeout(timer);
   }, [navigate]);

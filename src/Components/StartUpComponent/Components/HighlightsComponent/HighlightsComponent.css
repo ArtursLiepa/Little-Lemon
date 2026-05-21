@@ -25,13 +25,17 @@
     font-size: 40px;
 }
 
+.specialTtitle a {
+    margin: 10px;
+    align-self: flex-end;
+}
+
 .button {
     width: 200px;
     height: 60px;
     padding: 5px;
     text-decoration: none;
     background-color: #F4CE14;
-    /* border: 1px black solid; */
     border-radius: 5px;
     color: #333333;
     font-family: "Karla", sans-serif;
@@ -44,3 +48,16 @@
     background-color: #333333;
     color: #EDEFEE;
 }
+
+@media (max-width:650px) {
+    .specialTtitle {
+
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+
+    }
+}
+
+@media (max-width:450px) {}

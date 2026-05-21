@@ -37,14 +37,14 @@ const Header = () => {
     },
     {
       id: 5,
-      path: "login",
-      pathType: "inner",
+      path: "underconstruction",
+      pathType: "page",
       name: "Login",
     },
   ];
 
   return (
-    <header>
+    <header className="headerClass">
       <Link to="/">
         <img src={logo} alt="little lemon" className="titleImage" />
       </Link>

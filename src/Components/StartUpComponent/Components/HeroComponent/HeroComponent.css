@@ -3,7 +3,7 @@
     height: auto;
     background-color: #495E57;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: "herodescription heroimage";
 }
 
@@ -37,8 +37,8 @@
 }
 
 .heroImage {
-    margin: 20px;
     padding: 20px;
+    /* padding: 20px; */
     display: flex;
     justify-content: center;
     /* width: 100%; */
@@ -46,12 +46,14 @@
     grid-area: heroimage;
     align-content: center;
     border-radius: 12px;
+    max-height: 325px;
+    max-width: 375px;
 }
 
 .heroImage img {
 
-    height: 325px;
-    width: 375px;
+    height: 100%;
+    width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 12px;
@@ -78,5 +80,6 @@
 }
 
 .button:hover {
-    background-color: #EDEFEE;
+    background-color: #333333;
+    cursor: pointer;
 }

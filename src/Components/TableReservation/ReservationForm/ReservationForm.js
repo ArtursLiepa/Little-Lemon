@@ -1,16 +1,10 @@
 import "./ReservationForm.css";
 import { useState, useEffect } from "react";
-import { isNameValid, validateEmail } from "../../../utils";
-import { useLocation, useNavigate } from "react-router-dom";
-import useSubmit from "../../../hooks/useSubmit";
+import { isNameValid, isEmailValid, isPhoneValid } from "../../../utils";
+import { useNavigate } from "react-router-dom";
 
 const ReservationForm = ({ reservation, onSubmit, confirm }) => {
-  const location = useLocation();
   const navigate = useNavigate();
-
-  // Test 1
-  // const reservation = location.state;
-  const { submitAPI } = useSubmit();
 
   const NameErrorMessage = () => {
     return (
@@ -32,12 +26,27 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
     );
   };
 
+  const PhoneErrorMessage = () => {
+    return (
+      <p className="errorclass">
+        {phonenumber.isTouched && !phonenumber.value
+          ? "Required"
+          : "Check your typed phone number!"}
+      </p>
+    );
+  };
+
   const isFormTouched = () => {
-    return firstname.isTouched || email.isTouched;
+    return firstname.isTouched || lastname.isTouched || email.isTouched;
   };
 
   const isFormValid = () => {
-    return isNameValid(firstname.value) && validateEmail(email.value);
+    return (
+      isNameValid(firstname.value) &&
+      isNameValid(lastname.value) &&
+      isEmailValid(email.value) &&
+      isPhoneValid(phonenumber.value)
+    );
   };
 
   const clearForm = () => {
@@ -73,13 +82,6 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
 
   const formhandleSubmit = (e) => {
     e.preventDefault();
-    // const finalBooking = {
-    //   ...reservation,
-    //   firstname: firstname.value,
-    //   lastname: lastname.value,
-    //   phonenumber: phonenumber.value,
-    //   email: email.value,
-    // };
 
     onSubmit({
       firstname: firstname.value,
@@ -87,12 +89,6 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
       phonenumber: phonenumber.value,
       email: email.value,
     });
-
-    // const success = submitAPI(finalBooking);
-    // if (success) {
-    //   navigate("/reservation/confirm", { state: finalBooking });
-    //   clearForm();
-    // }
   };
 
   return (
@@ -128,7 +124,11 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
         </div>
       </div>
       <div className="clientformsection">
-        <form className="clientformview" onSubmit={formhandleSubmit}>
+        <form
+          data-testid="reservationdata-form"
+          className="clientformview"
+          onSubmit={formhandleSubmit}
+        >
           <label className="formtitle">Reservation Form</label>
           {/* First name input */}
           <div className="dataview">
@@ -180,7 +180,7 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
           </div>
           {/* Phone number input */}
           <div className="dataview">
-            <label htmlFor="phonenumber">Phone number</label>
+            <label htmlFor="phonenumber">Phone number *</label>
             <input
               className={
                 phonenumber.isTouched && phonenumber.value.length < 3
@@ -193,15 +193,18 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
               value={phonenumber.value}
               required
               onChange={(e) =>
-                setPhonenumber({ ...phonenumber, value: e.target.value })
+                setPhonenumber({
+                  ...phonenumber,
+                  value: e.target.value,
+                })
               }
               onBlur={(e) =>
                 setPhonenumber({ ...phonenumber, isTouched: true })
               }
               placeholder="Enter phone number"
             />
-            {phonenumber.isTouched && !isNameValid(phonenumber.value) ? (
-              <NameErrorMessage />
+            {phonenumber.isTouched && !isPhoneValid(phonenumber.value) ? (
+              <PhoneErrorMessage />
             ) : null}
           </div>
 
@@ -213,19 +216,21 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
               name="email"
               type="email"
               value={email.value}
+              required
               onChange={(e) => setEmail({ ...email, value: e.target.value })}
               onBlur={(e) => setEmail({ ...email, isTouched: true })}
               placeholder="Enter your email adress"
             />
-            {email.isTouched && !validateEmail(email.value) ? (
+            {email.isTouched && !isEmailValid(email.value) ? (
               <EmailErrorMessage />
             ) : null}
           </div>
-          {/* Phone name input */}
 
           <div>
             <button
-              className={isFormValid() ? "green" : isFormTouched() ? "red" : ""}
+              className={
+                isFormValid() ? "buttongo" : isFormTouched() ? "red" : ""
+              }
               disabled={!isFormValid()}
               type="submit"
             >

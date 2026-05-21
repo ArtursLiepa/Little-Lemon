@@ -1,6 +1,6 @@
 import useSubmit from "./hooks/useSubmit";
 
-const validateEmail = (email) => {
+const isEmailValid = (email) => {
   return String(email)
     .toLowerCase()
     .match(
@@ -9,11 +9,23 @@ const validateEmail = (email) => {
 };
 
 const isNameValid = (name) => {
-  const namerule = !/\d/.test(name) && name.length > 2;
-  return namerule;
+  const isValid = !/\d/.test(name) && name.length > 2;
+  return isValid;
 };
 
-const { fetchAPI } = useSubmit();
+const isPhoneValid = (phone) => {
+  const phoneRule = /^[+]?[\d\s\-()]{10,20}$/.test(phone) && phone.length >= 11;
+  return phoneRule;
+};
+
+const isPersonsValid = (number) => {
+  const isValid = number >= 1;
+  return isValid;
+};
+const isTimeValid = (time) => {
+  return /^([0-1]\d|2[0-3]):([0-5]\d)$/.test(time);
+};
+
 const initializeTimes = (fetchAPI) => {
   return fetchAPI(new Date());
 };
@@ -37,4 +49,12 @@ const updateTimes = (state, action) => {
   }
 };
 
-export { isNameValid, validateEmail, initializeTimes, updateTimes };
+export {
+  isNameValid,
+  isEmailValid,
+  initializeTimes,
+  updateTimes,
+  isPersonsValid,
+  isTimeValid,
+  isPhoneValid,
+};

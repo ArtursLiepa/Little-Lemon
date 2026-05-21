@@ -4,6 +4,8 @@ import StartUp from "./Components/StartUpComponent/StartUpComponent";
 import TableReservation from "./Components/TableReservation/TableReservation";
 import ReservationForm from "./Components/TableReservation/ReservationForm/ReservationForm";
 import ConfirmReservation from "./Components/TableReservation/ConfirmReservation/ConfirmReservation";
+import UnderConstructionComponent from "./Components/UnderConstructionComponent/UnderConstructionComponent";
+import NotFoundComponent from "./Components/NotFoundComponent/NotFoundComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import useSubmit from "./hooks/useSubmit";
 import { useState, useReducer } from "react";
@@ -16,16 +18,6 @@ function App() {
   const [approve, setApprove] = useState(0);
   const [reservations, setReservations] = useState([]);
   const [reservation, setReservation] = useState(null);
-
-  // const updateTimes = (state, action) => {
-  //   switch (action.type) {
-  //     case "UPDATE_TIMES":
-  //       return fetchAPI(new Date(action.date));
-
-  //     default:
-  //       return state;
-  //   }
-  // };
 
   const updateTimes = (state, action) => {
     switch (action.type) {
@@ -105,6 +97,11 @@ function App() {
               />
             }
           />
+          <Route
+            path="underconstruction"
+            element={<UnderConstructionComponent />}
+          />
+          <Route path="*" element={<NotFoundComponent />} />
         </Route>
       </Routes>
     </BrowserRouter>
