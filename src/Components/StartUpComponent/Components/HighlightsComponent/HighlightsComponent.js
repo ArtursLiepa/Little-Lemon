@@ -33,7 +33,7 @@ const Highlights = () => {
     <div id="reservation" className="highlightsSection">
       <div className="specialTtitle">
         <article>This weeks specials</article>
-        <div aria-label="Online <enu" role="On Click"></div>
+        <div aria-label="Online Menu" role="button"></div>
         <Link className="button" to="menu">
           Online menu
         </Link>

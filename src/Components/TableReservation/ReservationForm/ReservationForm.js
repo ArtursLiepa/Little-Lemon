@@ -78,7 +78,7 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
       navigate("/reservation/confirm");
       clearForm();
     }
-  }, [confirm]);
+  }, [confirm, navigate]);
 
   const formhandleSubmit = (e) => {
     e.preventDefault();

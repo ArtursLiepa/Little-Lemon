@@ -44,9 +44,9 @@ const Header = () => {
   ];
 
   return (
-    <header className="headerClass">
+    <header className="headercontainer">
       <Link to="/">
-        <img src={logo} alt="little lemon" className="titleImage" />
+        <img src={logo} alt="little lemon" className="logo" />
       </Link>
 
       <Navigation navItems={navList} />

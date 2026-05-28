@@ -13,7 +13,7 @@ const ConfirmReservation = ({ reservation, reset }) => {
     }, 15000);
 
     return () => clearTimeout(timer);
-  }, [navigate]);
+  }, [navigate, reset]);
 
   return (
     <div className="confirmationsection">
