@@ -8,10 +8,11 @@ nav {
 }
 
 .hamburger {
+    width: fit-content;
     display: flex;
     justify-content: end;
-    background: none;
     border: none;
+    background: none;
     font-size: 2rem;
     cursor: pointer;
 }
