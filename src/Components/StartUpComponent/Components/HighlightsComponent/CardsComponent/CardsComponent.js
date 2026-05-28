@@ -7,7 +7,7 @@ const Cards = (props) => {
     return (
       <div className="cardView" key={items.id}>
         <section className="cardImage">
-          <img src={items.image}></img>
+          <img src={items.image} alt="meal"></img>
         </section>
         <section className="cardInfo">
           <div className="cardsHead">
@@ -19,7 +19,7 @@ const Cards = (props) => {
           <Link className="deliverySection">
             Order a delivery
             <span className="deliveryIcon">
-              <img src={delivery}></img>
+              <img src={delivery} alt="delivery"></img>
             </span>
           </Link>
         </section>
