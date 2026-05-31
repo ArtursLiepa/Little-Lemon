@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
 
-const Navigation = (props) => {
+const Navigation = ({ navItems }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
 
@@ -29,7 +29,7 @@ const Navigation = (props) => {
     };
   }, []);
 
-  const List = props.navItems.map((items) => {
+  const List = navItems.map((items) => {
     return (
       <li className="navItem" key={items.id}>
         {items.pathType === "inner" ? (

@@ -19,7 +19,7 @@ const UnderConstructionComponent = () => {
           <div className="underconstructionmage">
             <img src={underconstruction} alt="confirmation"></img>
           </div>
-          <div className="thanksinfo">Thank you visting or website!</div>
+          <div className="thanksinfo">Thank you for visting or website!</div>
           <div className="clientsdata">
             Right now this page is underconstruction!
           </div>
