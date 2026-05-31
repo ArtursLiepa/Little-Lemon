@@ -1,8 +1,8 @@
 import "./AboutComponent.css";
-import photo1 from "../../../../Assets/restaurant chef B.jpg";
-import photo2 from "../../../../Assets/Mario and Adrian b.jpg";
+import photo1 from "../../Assets/restaurant chef B.jpg";
+import photo2 from "../../Assets/Mario and Adrian b.jpg";
 
-const About = () => {
+const AboutComponent = () => {
   return (
     <div id="about" className="aboutSection">
       <section className="titleSection">
@@ -27,4 +27,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutComponent;

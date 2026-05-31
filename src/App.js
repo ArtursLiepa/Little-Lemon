@@ -1,3 +1,7 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import useSubmit from "./hooks/useSubmit";
+import { useState, useReducer } from "react";
+// Custom Components
 import "./App.css";
 import LayoutComponent from "./Components/LayoutComponent/LayoutComponent";
 import StartUp from "./Components/StartUpComponent/StartUpComponent";
@@ -6,9 +10,7 @@ import ReservationForm from "./Components/TableReservation/ReservationForm/Reser
 import ConfirmReservation from "./Components/TableReservation/ConfirmReservation/ConfirmReservation";
 import UnderConstructionComponent from "./Components/UnderConstructionComponent/UnderConstructionComponent";
 import NotFoundComponent from "./Components/NotFoundComponent/NotFoundComponent";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import useSubmit from "./hooks/useSubmit";
-import { useState, useReducer } from "react";
+import AboutComponent from "./Components/AboutComponent/AboutComponent";
 
 function App() {
   const { fetchAPI, submitAPI } = useSubmit();
@@ -97,6 +99,7 @@ function App() {
               />
             }
           />
+          <Route path="about" element={<AboutComponent />}></Route>
           <Route
             path="underconstruction"
             element={<UnderConstructionComponent />}
