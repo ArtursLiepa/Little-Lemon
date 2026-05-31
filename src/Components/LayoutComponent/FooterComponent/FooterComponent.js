@@ -1,60 +1,47 @@
 import "./FooterComponent..css";
 import photo from "../../../Assets/Mario and Adrian b.jpg";
 // import Navigation from "../../HeaderComponent/NavComponent/NavigationComponent";
+import { FaFacebook, FaTwitter, FaEnvelope, FaPhone } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const FooterComponent = () => {
+const FooterComponent = ({ navItems }) => {
+  const footerList = navItems.map((items) => {
+    return (
+      <li className="footernavItem" key={items.id}>
+        {items.pathType === "inner" ? (
+          <a href={`/#${items.path}`}>{items.name}</a>
+        ) : (
+          <Link to={items.path}>{items.name}</Link>
+        )}
+      </li>
+    );
+  });
   return (
     <footer>
-      <div className="footerImage">
-        <img src={photo} alt="Mario and Andrian A"></img>
-      </div>
+      <section className="imagesacetion">
+        <div className="footerImage">
+          <img src={photo} alt="Mario and Andrian A"></img>
+        </div>
+      </section>
 
-      <ul className="links">
-        <h4>Doormat Navigation</h4>
-        <li>
-          <a href="home">Home</a>
-        </li>
-        <li>
-          <a href="/about">About</a>
-        </li>
-        <li>
-          <a href="/menu">Menu</a>
-        </li>
-        <li>
-          <a href="/reservation">Reservation</a>
-        </li>
-        <li>
-          <a href="/order">Order Online</a>
-        </li>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-        {/* <Navigation /> */}
+      <section className="socialmedialinks">
+        <FaFacebook />
+        <FaTwitter />
+        <FaPhone />
+        <FaEnvelope />
+      </section>
+      {/* Contacts */}
+      <ul className="contactlinks links">
+        <article>Contacts</article>
+        <li>Adress: Latvia, Riga, Brīvības iela 45, LV-1022</li>
+        <li>Phone: +371 999 999 999</li>
+        <li>Email: email@email.com</li>
       </ul>
-      <ul className="links">
-        <h4>Contact</h4>
-        <li>
-          <a href="/adress">Adress</a>
-        </li>
-        <li>
-          <a href="/phone">Phone Number</a>
-        </li>
-        <li>
-          <a href="/email">email</a>
-        </li>
-      </ul>
-      <ul className="links">
-        <h4>Social Media Links</h4>
-        <li>
-          <a href="/adress">Adress</a>
-        </li>
-        <li>
-          <a href="/phone">Phone Number</a>
-        </li>
-        <li>
-          <a href="/email">email</a>
-        </li>
-      </ul>
+      {/* Doormat Navigation */}
+      <section className="navigationlinks links">
+        <article>Doormat Navigation</article>
+        <ul>{footerList}</ul>
+      </section>
     </footer>
   );
 };
