@@ -11,6 +11,7 @@ import ConfirmReservation from "./Components/TableReservation/ConfirmReservation
 import UnderConstructionComponent from "./Components/UnderConstructionComponent/UnderConstructionComponent";
 import NotFoundComponent from "./Components/NotFoundComponent/NotFoundComponent";
 import AboutComponent from "./Components/AboutComponent/AboutComponent";
+import { ThemeProvider } from "./Context/ThemeContext";
 
 function App() {
   const { fetchAPI, submitAPI } = useSubmit();
@@ -66,48 +67,50 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LayoutComponent />}>
-          <Route index element={<StartUp />} />
-          <Route
-            path="reservation/details"
-            element={
-              <TableReservation
-                availableTimes={availableTimes}
-                dispatch={dispatch}
-                setReservation={setReservation}
-              />
-            }
-          ></Route>
-          <Route
-            path="reservation/client"
-            element={
-              <ReservationForm
-                reservation={reservation}
-                onSubmit={reservationsubmit}
-                confirm={approve}
-              />
-            }
-          />
-          <Route
-            path="reservation/confirm"
-            element={
-              <ConfirmReservation
-                reservation={reservation}
-                reset={setApprove}
-              />
-            }
-          />
-          <Route path="about" element={<AboutComponent />}></Route>
-          <Route
-            path="underconstruction"
-            element={<UnderConstructionComponent />}
-          />
-          <Route path="*" element={<NotFoundComponent />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LayoutComponent />}>
+            <Route index element={<StartUp />} />
+            <Route
+              path="reservation/details"
+              element={
+                <TableReservation
+                  availableTimes={availableTimes}
+                  dispatch={dispatch}
+                  setReservation={setReservation}
+                />
+              }
+            ></Route>
+            <Route
+              path="reservation/client"
+              element={
+                <ReservationForm
+                  reservation={reservation}
+                  onSubmit={reservationsubmit}
+                  confirm={approve}
+                />
+              }
+            />
+            <Route
+              path="reservation/confirm"
+              element={
+                <ConfirmReservation
+                  reservation={reservation}
+                  reset={setApprove}
+                />
+              }
+            />
+            <Route path="about" element={<AboutComponent />}></Route>
+            <Route
+              path="underconstruction"
+              element={<UnderConstructionComponent />}
+            />
+            <Route path="*" element={<NotFoundComponent />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
