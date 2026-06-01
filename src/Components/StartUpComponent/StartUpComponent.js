@@ -8,8 +8,8 @@ const StartUp = () => {
   const { theme } = useTheme();
   return (
     <div
-      className="startupSection"
-      style={{ background: theme === "light" ? "white" : "black" }}
+      className={`startupSection ${theme === "light" ? "light" : "dark"}`}
+      // style={{ background: theme === "light" ? "white" : "black" }}
     >
       <Hero />
       <Highlights />
