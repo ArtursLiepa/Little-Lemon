@@ -4,6 +4,7 @@ import greeksalads from "../../../../Assets/greek salad.jpg";
 import lemonsdesert from "../../../../Assets/lemon dessert.jpg";
 import Cards from "./CardsComponent/CardsComponent";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../../../Context/ThemeContext";
 
 const Highlights = () => {
   const specialList = [
@@ -29,8 +30,12 @@ const Highlights = () => {
       image: lemonsdesert,
     },
   ];
+
+  const { theme } = useTheme();
   return (
-    <div id="reservation" className="highlightsSection">
+    <div
+      className={`highlightsSection ${theme === "light" ? "light" : "dark"}`}
+    >
       <div className="specialTtitle">
         <article>This weeks specials</article>
         <div aria-label="Online Menu" role="button"></div>

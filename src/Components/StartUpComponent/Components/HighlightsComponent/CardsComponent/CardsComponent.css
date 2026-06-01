@@ -12,29 +12,42 @@
 
 .cardView {
     margin: 20px;
-    height: 439px;
-    width: 265px;
+    height: 400px;
+    width: 270px;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 50% 1fr;
     grid-template-areas: "cardImage" "cardInfo";
     margin-left: 10px;
+    border-radius: 8px;
     border: 1px black solid;
     border-radius: 8px;
+    color: #333333;
+    font-size: 1rem;
+
 }
 
 .cardImage {
     grid-area: cardImage;
     border-radius: 8px;
+    height: 100%;
+}
 
+.cardImage img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .cardInfo {
+    flex: 1;
     grid-area: cardInfo;
-    color: #333333;
     font-family: "Karla", sans-serif;
-    font-size: 16px;
-    display: grid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 10px;
 }
 
@@ -45,7 +58,7 @@
 }
 
 .cardsTitle {
-    font-size: 18px;
+    font-size: 1.25rem;
     font-weight: 800;
 
 }
@@ -53,40 +66,56 @@
 .cardsPrice {
     color: #EE9972;
     font-family: "Karla", sans-serif;
-    font-size: 16px;
     font-weight: 800;
 }
 
-.cardImage img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
 
 .deliverySection {
-
     display: flex;
     flex-direction: row;
     text-decoration: none;
+    color: inherit;
 }
 
 
-.deliveryIcon {
-    height: 10px;
-    width: 10px;
+.deliverySection svg {
+    margin-left: 15px;
+    font-size: 1.5rem;
+    opacity: 0.7;
 }
 
-.deliveryIcon img {
-    height: 20px;
-    width: auto;
-    aspect-ratio: 4/3;
-    object-fit: fill;
+.lightcards {
+    background: white;
+    color: black;
 }
 
-@media (max-width:600px) {
-    footer {
-        grid-template-columns: auto auto;
-        justify-content: space-between;
+.darkcards {
+    background: black;
+    color: white;
+    border: 1px white solid;
+}
+
+.cardView a {
+    text-decoration: underline;
+}
+
+@media (min-width:768px) {
+    .cardView {
+        height: 600px;
+        width: 405px;
+        font-size: 1.35rem;
+    }
+
+    .cardsTitle {
+        font-size: 1.5rem;
+        font-weight: 800;
+
     }
 }
+
+/* laptop view */
+@media (min-width:1024px) {}
+
+
+/* Desktop view */
+@media (min-width:1280px) {}

@@ -6,6 +6,7 @@
     grid-template-rows: auto 1fr;
     align-items: center;
     justify-content: center;
+    color: #333333
 }
 
 .specialTtitle {
@@ -18,7 +19,6 @@
 }
 
 .specialTtitle article {
-    color: #333333;
     font-family: "Karla", sans-serif;
     text-align: center;
     justify-content: space-between;
@@ -49,15 +49,21 @@
     color: #EDEFEE;
 }
 
-@media (max-width:650px) {
-    .specialTtitle {
-
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-
-
-    }
+.light {
+    background: white;
+    color: #333333;
 }
 
-@media (max-width:450px) {}
+.dark {
+    background: black;
+    color: white;
+}
+
+@media (min-width:768px) {}
+
+/* laptop view */
+@media (min-width:1024px) {}
+
+
+/* Desktop view */
+@media (min-width:1280px) {}

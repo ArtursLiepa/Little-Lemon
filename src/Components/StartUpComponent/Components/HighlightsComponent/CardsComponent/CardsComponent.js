@@ -1,11 +1,16 @@
 import "./CardsComponent.css";
-import delivery from "../../../../../Assets/delivery.jpg";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../../../../Context/ThemeContext";
+import { FaTruckMoving } from "react-icons/fa";
 
 const Cards = (props) => {
+  const { theme } = useTheme();
   const List = props.data.map((items) => {
     return (
-      <div className="cardView" key={items.id}>
+      <div
+        className={`cardView ${theme === "light" ? "lightcards" : "darkcards"}`}
+        key={items.id}
+      >
         <section className="cardImage">
           <img src={items.image} alt="meal"></img>
         </section>
@@ -16,17 +21,15 @@ const Cards = (props) => {
           </div>
 
           <p>{items.info}</p>
-          <Link className="deliverySection">
+          <Link className="deliverySection" to="underconstruction">
             Order a delivery
-            <span className="deliveryIcon">
-              <img src={delivery} alt="delivery"></img>
-            </span>
+            <FaTruckMoving />
           </Link>
         </section>
       </div>
     );
   });
-  return <div className="cardsList">{List}</div>;
+  return <div className={`cardsList`}>{List}</div>;
 };
 
 export default Cards;
