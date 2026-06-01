@@ -1,27 +1,26 @@
-footer {
-    grid-area: footer;
+.footersection {
+    width: 100%;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: repeat(4, auto);
     grid-template-areas: "imagesection" "socialmedialinks" "contactlinks" "navigationlinks";
-    align-items: center;
     background-color: #495E57;
+
+
 }
 
-.imagesacetion {
+.imagesection {
     grid-area: imagesection;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: 2px red bold;
 }
 
 .footerImage {
-
     padding: 15px;
     max-height: 200px;
     height: 350px;
-    width: auto;
     display: flex;
 }
 
@@ -35,19 +34,23 @@ footer {
 
 .socialmedialinks {
     grid-area: socialmedialinks;
-    flex: 1;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px 20px 0px 20px;
+
 }
 
 .socialmedialinks svg {
     padding-left: 5px;
     font-size: 2rem;
     margin: 5px;
+    color: black;
 }
 
+.socialmedialinks svg:hover {
+    cursor: pointer;
+}
 
 .links {
     display: flex;
@@ -59,7 +62,7 @@ footer {
 }
 
 .links article {
-    font-size: 1.rem;
+    font-size: 1.5rem;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -67,10 +70,12 @@ footer {
 .contactlinks {
     grid-area: contactlinks;
 
+
 }
 
 .navigationlinks {
     grid-area: navigationlinks;
+
 }
 
 .navigationlinks ul {
@@ -85,8 +90,6 @@ footer {
     flex-direction: row;
     justify-content: center;
     margin: 0px 5px 0 5px;
-    /* border: 1px red solid; */
-
 }
 
 .footernavItem a {
@@ -106,23 +109,46 @@ footer {
 }
 
 @media (min-width:768px) {
-    footer {
+    .footersection {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: "imagesection navigationlinks" "contactlinks socialmedialinks";
+    }
+
+    .footerImage {
+        padding: 15px;
+        max-height: 350px;
+        height: 300px;
+        display: flex;
+    }
+
+    .socialmedialinks {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footernavItem {
+        font-size: 1.5rem;
+    }
+}
+
+/* laptop view */
+@media (min-width:1024px) {
+    .footersection {
         display: grid;
         grid-template-columns: repeat(4, auto);
         grid-template-areas: "imagesection navigationlinks contactlinks socialmedialinks";
     }
 
+
+
     .socialmedialinks {
         display: flex;
         flex-direction: column;
-
         align-items: center;
-        margin: 0px 20px 0px 20px;
     }
 }
 
-/* laptop view */
-@media (min-width:1024px) {}
 
 /* Desktop view */
 @media (min-width:1280px) {}

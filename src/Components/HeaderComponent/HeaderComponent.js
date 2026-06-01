@@ -3,7 +3,6 @@ import logo from "../../Assets/Logo.svg";
 import Navigation from "./NavComponent/NavigationComponent";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../Context/ThemeContext";
-import { useState } from "react";
 
 const Header = ({ navItems }) => {
   const { theme, toggleTheme } = useTheme();

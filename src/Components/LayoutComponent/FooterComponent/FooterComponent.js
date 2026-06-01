@@ -17,18 +17,27 @@ const FooterComponent = ({ navItems }) => {
     );
   });
   return (
-    <footer>
-      <section className="imagesacetion">
+    <footer className="footersection ">
+      {/* Footer image  */}
+      <section className="imagesection">
         <div className="footerImage">
           <img src={photo} alt="Mario and Andrian A"></img>
         </div>
       </section>
-
+      {/* Social media links */}
       <section className="socialmedialinks">
-        <FaFacebook />
-        <FaTwitter />
-        <FaPhone />
-        <FaEnvelope />
+        <Link to="underconstruction">
+          <FaFacebook />
+        </Link>
+        <Link to="underconstruction">
+          <FaTwitter />
+        </Link>
+        <Link to="underconstruction">
+          <FaPhone />
+        </Link>
+        <Link to="underconstruction">
+          <FaEnvelope />
+        </Link>
       </section>
       {/* Contacts */}
       <ul className="contactlinks links">
