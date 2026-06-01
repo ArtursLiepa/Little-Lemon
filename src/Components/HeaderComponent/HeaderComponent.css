@@ -2,16 +2,85 @@
     grid-area: header;
     height: auto;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "themebutton logo nav";
 }
 
 .logo {
-    margin: 1rem;
+    grid-area: logo;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
 }
+
+.logo img {
+    height: 100%;
+}
+
+.themecontainer {
+    grid-area: themebutton;
+    display: flex;
+    align-self: flex-start;
+    justify-self: left;
+    height: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 0.35rem;
+    padding: 2px 5px;
+    opacity: 0.4;
+
+}
+
+.headernav {
+    grid-area: nav;
+    display: flex;
+    justify-content: center;
+}
+
+.themecontainer button {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.lightthemepart {
+    border-radius: 6px 0 0 6px;
+}
+
+.darkthemepart {
+    border-radius: 0 6px 6px 0;
+}
+
+.yellow {
+    background-color: #F4CE14;
+    color: #333333;
+    border: 1px #333333 solid;
+}
+
+.default {
+    border: 1px #333333 solid;
+}
+
+.yellow:hover {
+    background-color: #333333;
+    color: white;
+    border: 1px #F4CE14 solid;
+}
+
+.default:hover {
+    background-color: #333333;
+    color: white;
+    border: 1px #F4CE14 solid;
+
+}
+
+
+
 
 /* Tablet view */
 @media (min-width:768px) {
@@ -20,6 +89,11 @@
         flex-direction: column;
 
     }
+
+    .logo {
+        padding: 1rem;
+        height: 100px
+    }
 }
 
 /* laptop view */
@@ -27,6 +101,7 @@
     .headercontainer {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
 
     }
 }

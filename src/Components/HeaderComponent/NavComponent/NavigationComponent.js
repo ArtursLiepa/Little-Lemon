@@ -2,10 +2,12 @@ import "./NavigationComponent.css";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
+import { useTheme } from "../../../Context/ThemeContext";
 
 const Navigation = ({ navItems }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleOutsideClick = (event) => {

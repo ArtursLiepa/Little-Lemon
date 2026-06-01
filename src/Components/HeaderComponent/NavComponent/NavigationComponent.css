@@ -1,10 +1,13 @@
 nav {
-    flex: 1 0 auto;
+    padding-right: 5px;
+    flex: 0 1 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: end;
     position: relative;
+
+
 }
 
 .hamburger {
@@ -32,6 +35,11 @@ nav {
 
 .naviList.open {
     display: flex;
+}
+
+.darkmode {
+    background-color: black;
+    color: white;
 }
 
 .navItem {
@@ -66,9 +74,9 @@ nav {
         display: flex;
         position: static;
         flex-direction: row;
-        gap: 20px;
+        justify-content: right;
         width: auto;
-        padding: 0;
+
     }
 }
 
