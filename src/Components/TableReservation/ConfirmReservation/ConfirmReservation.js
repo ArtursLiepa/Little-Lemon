@@ -2,8 +2,10 @@ import "./ConfirmReservation.css";
 import { useNavigate } from "react-router-dom";
 import check from "../../../Assets/icons/check.png";
 import { useEffect } from "react";
+import { useTheme } from "../../../Context/ThemeContext";
 
 const ConfirmReservation = ({ reservation, reset }) => {
+  const { theme } = useTheme();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +18,9 @@ const ConfirmReservation = ({ reservation, reset }) => {
   }, [navigate, reset]);
 
   return (
-    <div className="confirmationsection">
+    <div
+      className={`confirmationsection ${theme === "light" ? "light" : "dark"}`}
+    >
       <div className="confirmationHero">
         <article className="confirmationTtitle">
           restaurant little lemon
