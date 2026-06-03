@@ -8,10 +8,13 @@ import StartUp from "./Components/StartUpComponent/StartUpComponent";
 import TableReservation from "./Components/TableReservation/TableReservation";
 import ReservationForm from "./Components/TableReservation/ReservationForm/ReservationForm";
 import ConfirmReservation from "./Components/TableReservation/ConfirmReservation/ConfirmReservation";
-import UnderConstructionComponent from "./Components/UnderConstructionComponent/UnderConstructionComponent";
-import NotFoundComponent from "./Components/NotFoundComponent/NotFoundComponent";
 import AboutComponent from "./Components/AboutComponent/AboutComponent";
+import NotificationComponent from "./Components/NotificationComponent/NotificationComponent";
 import { ThemeProvider } from "./Context/ThemeContext";
+import {
+  wentWrong,
+  underContruction,
+} from "../src/TextMeassages/notificationmeassages";
 
 function App() {
   const { fetchAPI, submitAPI } = useSubmit();
@@ -104,9 +107,12 @@ function App() {
             <Route path="about" element={<AboutComponent />}></Route>
             <Route
               path="underconstruction"
-              element={<UnderConstructionComponent />}
+              element={<NotificationComponent data={underContruction} />}
             />
-            <Route path="*" element={<NotFoundComponent />} />
+            <Route
+              path="*"
+              element={<NotificationComponent data={wentWrong} />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

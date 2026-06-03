@@ -1,5 +1,5 @@
 .confirmationsection {
-    flex: 1 1 600px;
+    flex: 1 0 600px;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr;
@@ -137,6 +137,17 @@
 }
 
 
+.light {
+    background: white;
+    color: black;
+}
+
+.dark {
+    background: black;
+    color: white;
+}
+
+
 @media (max-width:650px) {
 
 
@@ -174,3 +185,12 @@
 
     }
 }
+
+/* tablet view */
+@media (min-width:768px) {}
+
+/* laptop view */
+@media (min-width:1024px) {}
+
+/* Desktop view */
+@media (min-width:1280px) {}

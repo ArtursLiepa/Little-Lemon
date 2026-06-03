@@ -1,5 +1,5 @@
-.attentionContainer {
-    flex: 1 1 600px;
+.notificationContainer {
+    flex: 1 0 600px;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr;
@@ -7,7 +7,7 @@
 
 }
 
-.attentionHero {
+.notificationHero {
     height: 100%;
     padding: 10px;
     width: 100%;
@@ -20,7 +20,7 @@
 
 }
 
-.restaurantTittle {
+.notificationTittle {
     padding: 10px;
     font-size: 2rem;
     color: #F4CE14;
@@ -29,17 +29,17 @@
     text-align: center;
 }
 
-.attentionBanner {
+.notificationBanner {
     color: white;
     text-align: center;
 }
 
-.attentionText {
+.notificationText {
     font-size: 2rem;
     font-weight: 400;
 }
 
-.attentionLogSection {
+.notificationLogSection {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@
 }
 
 
-.attentionLog {
+.notificationLog {
     position: relative;
     margin: 10px;
     max-width: 400px;
@@ -57,18 +57,18 @@
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto auto auto 1fr auto;
-    grid-template-areas: "underconstructImage" "thanksInfo" "attentionMeassage" "reservationInfo" "backToHomeArea";
+    grid-template-areas: "notificationImage" "thanksInfo" "notificationMeassage" "reservationInfo" "backToHomeArea";
     font-size: 1.5rem;
 }
 
-.logBorder {
+.notificationlogBorder {
     border: 5px #495E57 solid;
     position: absolute;
     z-index: 999;
 }
 
 
-.undercontructionImageArea {
+.notificationImageArea {
     width: 100%;
     height: auto;
     display: flex;
@@ -76,21 +76,20 @@
 
 }
 
-.underconstructImage {
+.notificationImage {
     margin: 10px;
-    grid-area: underconstructImage;
+    grid-area: notificationImage;
     height: 96px;
     width: 96px;
-    border: 1px #495E57 solid;
     border-radius: 50%;
 
 }
 
-.underconstructImage img {
+.notificationImage img {
     border-radius: 50%;
     height: 100%;
     width: 100%;
-    border: 3px #F4CE14 solid;
+
 }
 
 .thanksInfo {
@@ -104,9 +103,9 @@
 
 }
 
-.attentionMeassage {
+.notificationMeassage {
     margin: 20px;
-    grid-area: attentionMeassage;
+    grid-area: notificationMeassage;
     display: flex;
     flex-direction: row;
     justify-content: center;
