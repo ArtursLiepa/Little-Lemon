@@ -1,36 +1,41 @@
 import "./UnderConstructionComponent.css";
 import underconstruction from "../../Assets/Photos/underconstruction.png";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../Context/ThemeContext";
 
 const UnderConstructionComponent = () => {
+  const { theme } = useTheme();
   return (
-    <div className="confirmationsection">
-      <div className="confirmationHero">
-        <article className="confirmationTtitle">
-          restaurant little lemon
-        </article>
-        <div className="confirmationinfo">
-          <p className="confirmationSuccess">Attention!</p>
+    <div
+      className={`attentionContainer ${theme === "light" ? "light" : "dark"}`}
+    >
+      <div className="attentionHero">
+        <article className="restaurantTittle">restaurant little lemon</article>
+        <div className="attentionBanner">
+          <p className="attentionText">Attention!</p>
         </div>
       </div>
 
-      <div className="confirmationarea">
-        <div className="log">
-          <div className="underconstructionmage">
-            <img src={underconstruction} alt="confirmation"></img>
+      <section className="attentionLogSection">
+        <div className="attentionLog logBorder">
+          <div className="undercontructionImageArea">
+            <div className="underconstructImage">
+              <img src={underconstruction} alt="confirmation"></img>
+            </div>
           </div>
-          <div className="thanksinfo">Thank you for visting or website!</div>
-          <div className="clientsdata">
+
+          <div className="thanksInfo">Thank you for visting our website!</div>
+          <div className="attentionMeassage">
             Right now this page is underconstruction!
           </div>
-          <div className="reservationdate">
+          <div className="reservationInfo">
             You are welcome to take reservation or take an online food delivery
           </div>
-          <div className="confirmationmessage confirmationmessagebutton">
+          <div className="backToHomeArea backToHomeAreaButton">
             <Link to="/">Back to Homepage</Link>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
