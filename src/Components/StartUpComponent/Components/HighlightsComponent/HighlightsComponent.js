@@ -38,10 +38,11 @@ const Highlights = () => {
     >
       <div className="specialTtitle">
         <article>This weeks specials</article>
-        <div aria-label="Online Menu" role="button"></div>
-        <Link className="button" to="menu">
-          Online menu
-        </Link>
+        <div className="menuButton" aria-label="Online Menu" role="button">
+          <Link className="button" to="menu">
+            Online menu
+          </Link>
+        </div>
       </div>
       <>
         <Cards data={specialList}></Cards>
