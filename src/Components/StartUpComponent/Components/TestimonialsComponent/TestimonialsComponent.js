@@ -4,8 +4,10 @@ import emilie from "../../../../Assets/Photos/1.jpg";
 import michail from "../../../../Assets/Photos/2.jpg";
 import nathan from "../../../../Assets/Photos/3.jpg";
 import david from "../../../../Assets/Photos/4.jpg";
+import { useTheme } from "../../../../Context/ThemeContext";
 
 const Testimonials = () => {
+  const { theme } = useTheme();
   const reviewList = [
     {
       id: 1,
@@ -39,8 +41,12 @@ const Testimonials = () => {
   ];
 
   return (
-    <div id="testimonials" className="testimonialsSection">
-      <article>Testimonials</article>
+    <div className="testimonialsSection">
+      <article
+        className={`testimonialsSectionTitle ${theme === "light" ? "light" : "dark"}`}
+      >
+        Testimonials
+      </article>
       <Review data={reviewList} />
     </div>
   );

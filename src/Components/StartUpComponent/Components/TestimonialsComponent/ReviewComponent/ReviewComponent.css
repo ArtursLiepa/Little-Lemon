@@ -20,7 +20,6 @@
     grid-template-rows: auto auto 1fr;
     grid-template-areas: "reviewRating" "reviewAuthor" "reviewText";
     row-gap: 10px;
-    ;
     margin-left: 10px;
     border: 1px black solid;
     border-radius: 8px;
@@ -38,29 +37,42 @@
     width: 100%;
     grid-area: reviewAuthor;
     display: flex;
-    flex-direction: row;
-    text-align: center;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .authorPhoto {
-    width: 47px;
-    height: 46px;
+    width: 50px;
+    height: 50px;
 }
 
 .authorPhoto img {
     height: 100%;
     width: 100%;
-    object-fit: fill;
+    aspect-ratio: 4/3;
+    object-fit: contain;
 }
 
 .authorName {
     flex: 1;
-    /* background-color: #333333; */
+    text-align: center;
 
-    align-self: center;
 }
 
 .reviewText {
     grid-area: reviewText;
 
+}
+
+.lightcards {
+    background: white;
+    color: #333333;
+    font-family: "Karla", sans-serif;
+}
+
+.darkcards {
+    background: black;
+    color: white;
+    border: 1px white solid;
+    font-family: "Karla", sans-serif;
 }
