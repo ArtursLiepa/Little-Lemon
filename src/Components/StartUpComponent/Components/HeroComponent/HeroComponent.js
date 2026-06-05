@@ -5,24 +5,25 @@ import restauratnFood from "../../../../Assets/restauranfood.jpg";
 const Hero = () => {
   return (
     <div id="home" className="heroSection">
+      <div className="heroTtitle">
+        <article>Little Lemon</article>
+        <h2>Chicago</h2>
+      </div>
+      <div className="heroImageContainer">
+        <div className="heroImage">
+          <img src={restauratnFood} alt="restaurant food"></img>
+        </div>
+      </div>
       <div className="heroDescription">
-        <section>
-          <article>Little Lemon</article>
-          <h2>Chicago</h2>
-          <p>
-            Visitors to the Little Lemon website will be viewing the content on
-            different devices, from small devices such as mobile phones to large
-            devices like desktops and tablets. Therefore, the owners of Little
-            Lemon have requested that the website is responsive.
-          </p>
-        </section>
+        <p>
+          Little Lemon was born from a shared passion for authentic
+          Mediterranean cuisine, warm hospitality, and bringing people together
+          through unforgettable dining experiences.
+        </p>
 
         <Link className="button" to="reservation/details">
           Reserve a Table
         </Link>
-      </div>
-      <div className="heroImage">
-        <img src={restauratnFood} alt="restaurant food"></img>
       </div>
     </div>
   );

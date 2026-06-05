@@ -4,60 +4,76 @@
     background-color: #495E57;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "herodescription heroimage";
+    grid-template-rows: auto auto;
+    grid-template-areas: "heroTtitle heroImageContainer" "herodescription herodescription";
 }
 
-.heroSection article {
+.heroTtitle {
+    grid-area: heroTtitle;
+    padding-left: 20px;
+
+}
+
+.heroTtitle article {
     font-size: 64px;
     color: #F4CE14;
-    /* font-family: "Markazi text", serif; */
     font-family: "Roboto", sans-serif
 }
 
-.heroSection h2 {
+.heroTtitle h2 {
     color: white;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 400;
 }
 
-.heroDescription {
-    grid-area: herodescription;
-    margin: 20px;
+.heroImageContainer {
+    grid-area: heroImageContainer;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.heroDescription p {
-    padding: 20px 10px 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 16px;
-
+    justify-content: center;
 }
 
 .heroImage {
     padding: 20px;
-    /* padding: 20px; */
     display: flex;
     justify-content: center;
-    /* width: 100%; */
-    height: auto;
+    height: 250px;
+    width: auto;
+    min-height: 100px;
+    min-width: 75px;
     grid-area: heroimage;
     align-content: center;
     border-radius: 12px;
-    max-height: 325px;
-    max-width: 375px;
+
 }
 
 .heroImage img {
-
     height: 100%;
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 12px;
 }
+
+.heroDescription {
+    grid-area: herodescription;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+
+}
+
+.heroDescription p {
+    padding: 0px 0px 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+}
+
+
+
 
 .buttonSection {
     display: block;
@@ -83,3 +99,27 @@
     background-color: #333333;
     cursor: pointer;
 }
+
+@media (min-width:768px) {
+    .heroImage {
+        height: 350px;
+        width: auto;
+    }
+
+    .heroSection {
+        width: 100%;
+        height: auto;
+        background-color: #495E57;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "heroTtitle heroImageContainer" "herodescription heroImageContainer";
+    }
+}
+
+/* laptop view */
+@media (min-width:1024px) {}
+
+
+/* Desktop view */
+@media (min-width:1280px) {}
