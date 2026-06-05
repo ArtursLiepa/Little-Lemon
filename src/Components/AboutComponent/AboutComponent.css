@@ -7,7 +7,7 @@
     grid-template-areas: "titlesection" "aboutsection";
     color: #333333;
     font-size: 1rem;
-    font-family: "Karla", sans-serif;
+    /* font-family: "Karla", sans-serif; */
 }
 
 .titlesection {
@@ -30,7 +30,7 @@
 
 .sectiontitle {
     grid-area: townsection;
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
     font-size: 1.25rem;
 }
 
@@ -140,7 +140,7 @@
 
 @media (min-width:768px) {
     .aboutcontainer {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .sectiontitle {
