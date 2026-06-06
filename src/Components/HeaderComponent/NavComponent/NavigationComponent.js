@@ -2,12 +2,12 @@ import "./NavigationComponent.css";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
-// import { useTheme } from "../../../Context/ThemeContext";
+import { useTheme } from "../../../Context/ThemeContext";
 
 const Navigation = ({ navItems }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
-  // const { theme } = useTheme();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -33,7 +33,7 @@ const Navigation = ({ navItems }) => {
 
   const List = navItems.map((items) => {
     return (
-      <li className="navItem" key={items.id}>
+      <li className={`navItem`} key={items.id}>
         {items.pathType === "inner" ? (
           <a href={`/#${items.path}`} onClick={() => setIsOpen(false)}>
             {items.name}
@@ -48,16 +48,19 @@ const Navigation = ({ navItems }) => {
   });
 
   return (
-    <nav>
+    <nav className={`navContainer`}>
       <button
-        className="hamburger"
+        className={`hamburger ${theme === "light" ? "light" : "dark"} `}
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label="Toggle menu"
         aria-expanded={isOpen}
       >
         <FaBars />
       </button>
-      <ul ref={navRef} className={`naviList ${isOpen ? "open" : ""}`}>
+      <ul
+        ref={navRef}
+        className={`naviList ${isOpen ? "open" : ""}  ${theme === "light" ? "" : "navListDark"} `}
+      >
         {List}
       </ul>
     </nav>

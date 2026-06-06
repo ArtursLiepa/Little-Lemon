@@ -1,11 +1,12 @@
-nav {
+.navContainer {
     padding-right: 5px;
-    flex: 0 1 auto;
+    flex: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: end;
     position: relative;
+    /* border: 1px red solid; */
 
 
 }
@@ -16,7 +17,7 @@ nav {
     justify-content: end;
     border: none;
     background: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
@@ -27,35 +28,49 @@ nav {
     top: 4rem;
     right: 0;
     width: fit-content;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 16px;
     border-radius: 6px;
-
+    list-style: none;
+    margin: 5px;
+    font-family: "Karla", sans-serif;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .naviList.open {
     display: flex;
 }
 
-.darkmode {
-    background-color: black;
+.navListLight {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    color: #333333;
+
+
+}
+
+.navListDark {
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
+
 }
 
 .navItem {
-    padding: 5px;
+
+    /* padding: 5px; */
     display: flex;
     justify-items: center;
     align-items: center;
+    padding: 10px;
+    font-size: 1.15rem;
+    /* border: 1px red solid; */
 }
 
 .navItem a {
-    /* margin: 5px; */
     padding: 5px;
+    width: max-content;
+    height: max-content;
+    color: inherit;
     text-decoration: none;
-    color: black;
-    font-size: 20px;
 }
+
 
 .naviList a:hover {
     color: white;
@@ -63,6 +78,19 @@ nav {
     cursor: pointer;
     border-radius: 12px;
 }
+
+/* .light {
+    background: white;
+    color: #333333;
+    font-family: "Karla", sans-serif;
+
+}
+
+.dark {
+    background: rgb(161, 153, 153);
+    color: white;
+    font-family: "Karla", sans-serif;
+} */
 
 /* Tablet view */
 @media (min-width:768px) {
@@ -89,4 +117,8 @@ nav {
 }
 
 /* Desktop view */
-@media (min-width:1280px) {}
+@media (min-width:1280px) {
+    .navItem a {
+        font-size: 1.5rem;
+    }
+}
