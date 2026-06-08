@@ -5,9 +5,7 @@ import { useTheme } from "../../Context/ThemeContext";
 const NotificationComponent = ({ data }) => {
   const { theme } = useTheme();
   return (
-    <div
-      className={`notificationContainer ${theme === "light" ? "light" : "dark"}`}
-    >
+    <div className={`notificationContainer`}>
       <div className="notificationHero">
         <article className="notificationTittle">{data.restaurant}</article>
         <div className="notificationBanner">
@@ -15,7 +13,9 @@ const NotificationComponent = ({ data }) => {
         </div>
       </div>
 
-      <section className="notificationLogSection">
+      <section
+        className={`notificationLogSection ${theme === "light" ? "light" : "dark"}`}
+      >
         <div className="notificationLog notificationlogBorder">
           <div className="notificationImageArea">
             <div className="notificationImage">

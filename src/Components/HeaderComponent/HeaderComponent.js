@@ -34,7 +34,7 @@ const Header = ({ navItems }) => {
         </Link>
       </div>
 
-      <div className="headernav">
+      <div className={`headernav`}>
         <Navigation navItems={navItems} />
       </div>
     </header>

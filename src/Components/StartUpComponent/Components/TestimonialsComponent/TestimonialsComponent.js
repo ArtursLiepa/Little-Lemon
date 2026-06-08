@@ -41,12 +41,10 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="testimonialsSection">
-      <article
-        className={`testimonialsSectionTitle ${theme === "light" ? "light" : "dark"}`}
-      >
-        Testimonials
-      </article>
+    <div
+      className={`testimonialsSection ${theme === "light" ? "light" : "dark"}`}
+    >
+      <article className={`testimonialsSectionTitle`}>Testimonials</article>
       <Review data={reviewList} />
     </div>
   );

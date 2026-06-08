@@ -64,7 +64,7 @@
 .notificationlogBorder {
     border: 5px #495E57 solid;
     position: absolute;
-    z-index: 999;
+    z-index: 1;
 }
 
 
