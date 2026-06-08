@@ -2,14 +2,25 @@ import "./ReservationForm.css";
 import { useState, useEffect } from "react";
 import { isNameValid, isEmailValid, isPhoneValid } from "../../../utils";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../../Context/ThemeContext";
 
 const ReservationForm = ({ reservation, onSubmit, confirm }) => {
+  const { theme } = useTheme();
   const navigate = useNavigate();
 
   const NameErrorMessage = () => {
     return (
       <p className="errorclass">
         {firstname.isTouched && !firstname.value
+          ? "Required"
+          : "Name should have at least 3 characters and without numbers"}
+      </p>
+    );
+  };
+  const LastNameErrorMessage = () => {
+    return (
+      <p className="errorclass">
+        {lastname.isTouched && !lastname.value
           ? "Required"
           : "Name should have at least 3 characters and without numbers"}
       </p>
@@ -98,7 +109,9 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
         <p>Complete the form below and your reservation will be confirmed</p>
       </section>
 
-      <div className="reservationoverview">
+      <div
+        className={`reservationoverview ${theme === "light" ? "light" : "dark"}`}
+      >
         <article className="reservationoverviewtitle">
           Your table reservation overview
         </article>
@@ -123,7 +136,9 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
           </ul>
         </div>
       </div>
-      <div className="clientformsection">
+      <div
+        className={`clientformsection ${theme === "light" ? "light" : "dark"}`}
+      >
         <form
           data-testid="reservationdata-form"
           className="clientformview"
@@ -134,11 +149,15 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
           <div className="dataview">
             <label htmlFor="firstname">First name *</label>
             <input
-              className={
-                firstname.isTouched && firstname.value.length < 3
-                  ? "inputTouchedButEmpty"
-                  : "inputGood"
-              }
+              className={`${
+                theme === "light"
+                  ? firstname.isTouched && firstname.value.length < 3
+                    ? "light errorBorder lightThemeBorder lightThemeHover "
+                    : "light lightThemeBorder lightThemeHover"
+                  : firstname.isTouched && firstname.value.length < 3
+                    ? "dark errorBorder darkThemeBorder darkThemeHover "
+                    : "dark darkThemeBorder darkThemeHover "
+              }`}
               id="firstname"
               name="firstname"
               type="text"
@@ -158,11 +177,15 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
           <div className="dataview">
             <label htmlFor="lastname">Last Name *</label>
             <input
-              className={
-                lastname.isTouched && lastname.value.length < 3
-                  ? "inputTouchedButEmpty"
-                  : "inputGood"
-              }
+              className={`${
+                theme === "light"
+                  ? lastname.isTouched && lastname.value.length < 3
+                    ? "light errorBorder lightThemeBorder lightThemeHover "
+                    : "light lightThemeBorder lightThemeHover"
+                  : lastname.isTouched && lastname.value.length < 3
+                    ? "dark errorBorder darkThemeBorder darkThemeHover "
+                    : "dark darkThemeBorder darkThemeHover "
+              }`}
               id="lastname"
               name="lastname"
               type="text"
@@ -175,18 +198,22 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
               placeholder="Enter your last name"
             />
             {lastname.isTouched && !isNameValid(lastname.value) ? (
-              <NameErrorMessage />
+              <LastNameErrorMessage />
             ) : null}
           </div>
           {/* Phone number input */}
           <div className="dataview">
             <label htmlFor="phonenumber">Phone number *</label>
             <input
-              className={
-                phonenumber.isTouched && phonenumber.value.length < 3
-                  ? "inputTouchedButEmpty"
-                  : "inputGood"
-              }
+              className={`unsetNumberScroll ${
+                theme === "light"
+                  ? phonenumber.isTouched && phonenumber.value.length < 8
+                    ? "light errorBorder lightThemeBorder lightThemeHover "
+                    : "light lightThemeBorder lightThemeHover"
+                  : phonenumber.isTouched && phonenumber.value.length < 8
+                    ? "dark errorBorder darkThemeBorder darkThemeHover "
+                    : "dark darkThemeBorder darkThemeHover "
+              }`}
               id="phonenumber"
               name="phonenumber"
               type="number"
@@ -207,11 +234,19 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
               <PhoneErrorMessage />
             ) : null}
           </div>
-
           {/* e-mail input */}
           <div className="dataview">
             <label htmlFor="email">Email Address *</label>
             <input
+              className={`unsetNumberScroll ${
+                theme === "light"
+                  ? email.isTouched && email.value.length < 8
+                    ? "light errorBorder lightThemeBorder lightThemeHover "
+                    : "light lightThemeBorder lightThemeHover"
+                  : email.isTouched && email.value.length < 8
+                    ? "dark errorBorder darkThemeBorder darkThemeHover "
+                    : "dark darkThemeBorder darkThemeHover "
+              }`}
               id="email"
               name="email"
               type="email"
@@ -226,11 +261,9 @@ const ReservationForm = ({ reservation, onSubmit, confirm }) => {
             ) : null}
           </div>
 
-          <div>
+          <div className="formGoButton">
             <button
-              className={
-                isFormValid() ? "buttongo" : isFormTouched() ? "red" : ""
-              }
+              className={`defaultFormGoButton ${theme === "light" ? (isFormValid() ? " lightThemeBorder buttonvalid" : isFormTouched() ? "errorBorder" : "") : isFormValid() ? " darkThemeBorder buttonvalid" : isFormTouched() ? "errorBorder" : ""} `}
               disabled={!isFormValid()}
               type="submit"
             >
