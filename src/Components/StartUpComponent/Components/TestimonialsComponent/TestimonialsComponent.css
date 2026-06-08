@@ -5,7 +5,7 @@
 
 .testimonialsSectionTitle {
     padding: 15px;
-    color: #333333;
+    color: inherit;
     font-family: "Karla", sans-serif;
     font-size: 40px;
 }
