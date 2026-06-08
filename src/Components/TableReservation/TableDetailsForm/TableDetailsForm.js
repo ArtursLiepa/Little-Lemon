@@ -76,7 +76,7 @@ const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
   return (
     <form
       data-testid="tabledetail-form"
-      className="formview"
+      className={`formview`}
       onSubmit={handleSubmit}
     >
       <label className="formtitle">Reservation Details</label>
@@ -86,7 +86,7 @@ const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
         <div className="dataview">
           <label htmlFor="occasion">Occasion</label>
           <select
-            className={`${theme === "light" ? "selectView" : "darkselectView"} `}
+            className={`${theme === "light" ? "light lightThemeBorder lightThemeHover" : "dark darkThemeBorder darkThemeHover "} `}
             id="occasion"
             type="text"
             name="occasion"
@@ -104,7 +104,7 @@ const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
         <div className="dataview">
           <label htmlFor="date">Date *</label>
           <input
-            className={`${theme === "light" ? "inputGood" : "darkInputGood"} `}
+            className={`${theme === "light" ? "light lightThemeBorder lightThemeHover" : "dark darkThemeBorder darkThemeHover"} `}
             id="date"
             name="date"
             type="date"
@@ -128,11 +128,11 @@ const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
               className={`${
                 theme === "light"
                   ? time.isTouched && !time.value
-                    ? "selectTouchedButEmpty"
-                    : "selectView"
+                    ? "light errorBorder lightThemeHover"
+                    : "light lightThemeBorder lightThemeHover"
                   : time.isTouched && !time.value
-                    ? "selectTouchedButEmpty"
-                    : "darkselectView"
+                    ? "dark errorBorder darkThemeHover"
+                    : "dark darkThemeBorder darkThemeHover"
               }`}
               // className="selectView"
               id="time"
@@ -160,9 +160,10 @@ const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
         <div className="dataview">
           <label htmlFor="persons">Persons *</label>
           <div
-            className={`${theme === "light" ? "setpersons" : "darksetpersons"} `}
+            className={`setPersons ${theme === "light" ? "light" : "dark"} `}
           >
             <button
+              className={`${theme === "light" ? "light lightThemeBorder lightThemeHover" : "dark darkThemeBorder darkThemeHover"}`}
               disabled={persons.value === 0}
               type="button"
               onClick={() =>
@@ -172,7 +173,7 @@ const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
               -
             </button>
             <input
-              className={`${theme === "light" ? "inputpersons" : "darkinputpersons"} `}
+              className={`inputpersons ${theme === "light" ? (persons.isTouched && !isPersonsValid(persons.value) ? "light errorBorder lightThemeHover" : "light lightThemeBorder lightThemeHover") : persons.isTouched && !isPersonsValid(persons.value) ? "dark errorBorder darkThemeHover" : "dark darkThemeBorder darkThemeHover"} `}
               id="persons"
               name="persons"
               type="number"
@@ -187,7 +188,7 @@ const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
             <button
               disabled={persons.value > 20}
               type="button"
-              className="setButton"
+              className={`${theme === "light" ? "light lightThemeBorder lightThemeHover" : "dark darkThemeBorder darkThemeHover"}`}
               onClick={() =>
                 setPersons({ ...persons, value: Number(persons.value + 1) })
               }
@@ -205,7 +206,7 @@ const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
 
       <div className="formGoButton">
         <button
-          className={`defaultFormGoButton ${isFormValid() ? "buttongo" : isFormTouched() ? "red" : ""}`}
+          className={`defaultFormGoButton ${theme === "light" ? (isFormValid() ? " lightThemeBorder buttonvalid" : isFormTouched() ? "errorBorder" : "") : isFormValid() ? " darkThemeBorder buttonvalid" : isFormTouched() ? "errorBorder" : ""} `}
           disabled={!isFormValid()}
           type="submit"
           name="confirm"
