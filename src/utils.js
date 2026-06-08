@@ -14,7 +14,7 @@ const isNameValid = (name) => {
 };
 
 const isPhoneValid = (phone) => {
-  const phoneRule = /^[+]?[\d\s\-()]{10,20}$/.test(phone) && phone.length >= 11;
+  const phoneRule = /^[+]?[\d\s\-()]{8,20}$/.test(phone);
   return phoneRule;
 };
 
