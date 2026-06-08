@@ -1,11 +1,14 @@
 import { useState } from "react";
 import "./TableDetailsForm.css";
 import { isPersonsValid, isTimeValid } from "../../../utils";
+import BookingList from "../BookingList/BookingList";
+import { useTheme } from "../../../Context/ThemeContext";
 
 const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
-  const today = new Date();
-  today.setDate(today.getDate());
-  const formattedTomorrow = today.toISOString().split("T")[0];
+  const { theme } = useTheme();
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const formattedTomorrow = tomorrow.toISOString().split("T")[0];
 
   const PersonsErrorMessage = () => {
     return (
@@ -77,123 +80,132 @@ const TableDetailsForm = ({ onSubmit, availableTimes, dispatch }) => {
       onSubmit={handleSubmit}
     >
       <label className="formtitle">Reservation Details</label>
+      <BookingList availableTimes={availableTimes} />
       {/* Occasion part */}
-      <div className="dataview">
-        <label htmlFor="occasion">Occasion</label>
-        <select
-          className="selectView"
-          id="occasion"
-          type="text"
-          name="occasion"
-          value={occasion}
-          onChange={(e) => setOccasion(e.target.value)}
-        >
-          <option value="">Select occasion</option>
-          <option value="Birthday">Birthday</option>
-          <option value="Anniversary">Anniversary</option>
-          <option value="Engagement">Engagement</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      {/* Date part */}
-      <div className="dataview">
-        <label htmlFor="date">Date *</label>
-        <input
-          className="inputGood"
-          id="date"
-          name="date"
-          type="date"
-          value={date}
-          required
-          onChange={(e) => {
-            const selectedDate = e.target.value;
-            setDate(selectedDate);
-            dispatch({
-              type: "UPDATE_TIMES",
-              date: selectedDate,
-            });
-          }}
-        />
-      </div>
-      {/* Time part */}
-      <div className="dataview">
-        <>
-          <label htmlFor="time">Time *</label>
+      <div className="formData">
+        <div className="dataview">
+          <label htmlFor="occasion">Occasion</label>
           <select
-            className={
-              time.isTouched && !time.value
-                ? "selectTouchedButEmpty"
-                : "selectView"
-            }
-            // className="selectView"
-            id="time"
-            name="time"
-            value={time.value}
-            required
+            className={`${theme === "light" ? "selectView" : "darkselectView"} `}
+            id="occasion"
             type="text"
-            onChange={(e) => setTime({ ...time, value: e.target.value })}
-            onBlur={(e) => {
-              setTime({ ...time, isTouched: true });
-            }}
+            name="occasion"
+            value={occasion}
+            onChange={(e) => setOccasion(e.target.value)}
           >
-            <option value="">Select time</option>
-            {availableTimes.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
+            <option value="">Select occasion</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Anniversary">Anniversary</option>
+            <option value="Engagement">Engagement</option>
+            <option value="other">Other</option>
           </select>
-        </>
-        {time.isTouched && !time.value ? <TimeErrorMeassage /> : null}
-      </div>
-
-      {/* Persons part */}
-      <div className="dataview">
-        <label htmlFor="persons">Persons *</label>
-        <div className="setpersons">
-          <button
-            disabled={persons.value === 0}
-            type="button"
-            onClick={() =>
-              setPersons({ ...persons, value: Number(persons.value - 1) })
-            }
-          >
-            -
-          </button>
-          <input
-            className="inputpersons"
-            id="persons"
-            name="persons"
-            type="number"
-            min="1"
-            max="20"
-            value={persons.value}
-            required
-            onChange={(e) =>
-              setPersons({ ...persons, value: Number(e.target.value) })
-            }
-          />
-          <button
-            disabled={persons.value > 20}
-            type="button"
-            className="setButton"
-            onClick={() =>
-              setPersons({ ...persons, value: Number(persons.value + 1) })
-            }
-            onBlur={(e) => setPersons({ ...persons, isTouched: true })}
-          >
-            +
-          </button>
         </div>
-        {persons.isTouched && persons.value === 0 ? (
-          <PersonsErrorMessage />
-        ) : null}
-        {persons.value > 20 ? <Maxpersonsreached /> : null}
+        {/* Date part */}
+        <div className="dataview">
+          <label htmlFor="date">Date *</label>
+          <input
+            className={`${theme === "light" ? "inputGood" : "darkInputGood"} `}
+            id="date"
+            name="date"
+            type="date"
+            value={date}
+            required
+            onChange={(e) => {
+              const selectedDate = e.target.value;
+              setDate(selectedDate);
+              dispatch({
+                type: "UPDATE_TIMES",
+                date: selectedDate,
+              });
+            }}
+          />
+        </div>
+        {/* Time part */}
+        <div className="dataview">
+          <>
+            <label htmlFor="time">Time *</label>
+            <select
+              className={`${
+                theme === "light"
+                  ? time.isTouched && !time.value
+                    ? "selectTouchedButEmpty"
+                    : "selectView"
+                  : time.isTouched && !time.value
+                    ? "selectTouchedButEmpty"
+                    : "darkselectView"
+              }`}
+              // className="selectView"
+              id="time"
+              name="time"
+              value={time.value}
+              required
+              type="text"
+              onChange={(e) => setTime({ ...time, value: e.target.value })}
+              onBlur={(e) => {
+                setTime({ ...time, isTouched: true });
+              }}
+            >
+              <option value="">Select time</option>
+              {availableTimes.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+          </>
+          {time.isTouched && !time.value ? <TimeErrorMeassage /> : null}
+        </div>
+
+        {/* Persons part */}
+        <div className="dataview">
+          <label htmlFor="persons">Persons *</label>
+          <div
+            className={`${theme === "light" ? "setpersons" : "darksetpersons"} `}
+          >
+            <button
+              disabled={persons.value === 0}
+              type="button"
+              onClick={() =>
+                setPersons({ ...persons, value: Number(persons.value - 1) })
+              }
+            >
+              -
+            </button>
+            <input
+              className={`${theme === "light" ? "inputpersons" : "darkinputpersons"} `}
+              id="persons"
+              name="persons"
+              type="number"
+              min="1"
+              max="20"
+              value={persons.value}
+              required
+              onChange={(e) =>
+                setPersons({ ...persons, value: Number(e.target.value) })
+              }
+            />
+            <button
+              disabled={persons.value > 20}
+              type="button"
+              className="setButton"
+              onClick={() =>
+                setPersons({ ...persons, value: Number(persons.value + 1) })
+              }
+              onBlur={(e) => setPersons({ ...persons, isTouched: true })}
+            >
+              +
+            </button>
+          </div>
+          {persons.isTouched && persons.value === 0 ? (
+            <PersonsErrorMessage />
+          ) : null}
+          {persons.value > 20 ? <Maxpersonsreached /> : null}
+        </div>
       </div>
 
-      <div>
+      <div className="formGoButton">
         <button
-          className={isFormValid() ? "buttongo" : isFormTouched() ? "red" : ""}
+          className={`defaultFormGoButton ${isFormValid() ? "buttongo" : isFormTouched() ? "red" : ""}`}
           disabled={!isFormValid()}
           type="submit"
           name="confirm"

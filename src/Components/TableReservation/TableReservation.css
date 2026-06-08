@@ -16,7 +16,7 @@
 }
 
 .reservationHero article {
-    font-size: 48px;
+    font-size: 1.5rem;
     color: #F4CE14;
     /* font-family: "Markazi text", serif; */
     font-family: "Roboto", sans-serif;
@@ -26,38 +26,42 @@
 
 .reservationHero p {
     color: white;
-    font-size: 24px;
+    font-size: 1rem;
     font-weight: 400;
     text-align: center;
 }
 
 .reservationDetails {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    /* background-color: aqua; */
+    /* display: grid;
+    grid-template-columns: 1fr 4fr; */
 
 }
 
-@media (max-width:650px) {
+
+/* Tablet view */
+@media (min-width:768px) {
     .reservationHero article {
-        font-size: 32px;
+        font-size: 2rem;
     }
 
     .reservationHero p {
-        font-size: 20px;
+        font-size: 1.5rem;
 
     }
 }
 
-@media (max-width:450px) {
+/* laptop view */
+@media (min-width:1024px) {
     .reservationHero article {
-        font-size: 24px;
-
+        font-size: 3rem;
     }
 
     .reservationHero p {
-        font-size: 18px;
+        font-size: 2rem;
 
     }
 }
+
+/* Desktop view */
+@media (min-width:1280px) {}
