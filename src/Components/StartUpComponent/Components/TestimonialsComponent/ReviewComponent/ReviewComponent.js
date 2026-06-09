@@ -12,7 +12,7 @@ const Review = (props) => {
         <section className="reviewRating"> Rate Score: {items.rating}</section>
         <section className="reviewAuthor">
           <div className="authorPhoto">
-            <img src={items.photo} alt="reviw author"></img>
+            <img src={items.photo} alt="review author"></img>
           </div>
           <div className="authorName">{items.name}</div>
         </section>
