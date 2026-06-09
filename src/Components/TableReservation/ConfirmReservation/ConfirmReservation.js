@@ -18,9 +18,7 @@ const ConfirmReservation = ({ reservation, reset }) => {
   }, [navigate, reset]);
 
   return (
-    <div
-      className={`confirmationsection ${theme === "light" ? "light" : "dark"}`}
-    >
+    <div className={`confirmationsection`}>
       <div className="confirmationHero">
         <article className="confirmationTtitle">
           restaurant little lemon
@@ -34,7 +32,9 @@ const ConfirmReservation = ({ reservation, reset }) => {
         </div>
       </div>
 
-      <div className="confirmationarea">
+      <div
+        className={`confirmationarea ${theme === "light" ? "light" : "dark"}`}
+      >
         <div className="log">
           <div className="checkimage">
             <img src={check} alt="confirmation"></img>
