@@ -1,5 +1,3 @@
-// import useSubmit from "./hooks/useSubmit";
-
 const isEmailValid = (email) => {
   return String(email)
     .toLowerCase()
